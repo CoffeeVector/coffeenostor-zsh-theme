@@ -254,3 +254,15 @@ PROMPT='%{%f%b%k%}$(build_prompt) '
 
 NORMAL_MODE_INDICATOR="%{$fg_bold[green]%}\ue0b2$(prompt_segment green $CURRENT_FG '--NORMAL-- ')"
 INSERT_MODE_INDICATOR="%{$fg_bold[blue]%}\ue0b2$(prompt_segment blue $CURRENT_FG '--INSERT-- ')"
+
+function vi_mode_prompt_info() {
+	echo "${${VI_KEYMAP/vicmd/$NORMAL_MODE_INDICATOR}/(main|viins)/$INSERT_MODE_INDICATOR}"
+}
+
+function zle-line-init zle-keymap-select() {
+# update keymap variable for the prompt
+VI_KEYMAP=$KEYMAP
+
+zle reset-prompt
+zle -R
+}
