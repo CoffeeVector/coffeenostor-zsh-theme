@@ -1,5 +1,3 @@
-# vim:ft=zsh ts=2 sw=2 sts=2
-#
 # agnoster's Theme - https://gist.github.com/3712874
 # A Powerline-inspired theme for ZSH
 #
@@ -11,23 +9,6 @@
 # uses changed in 2012, and older versions will display incorrectly,
 # in confusing ways.
 #
-# In addition, I recommend the
-# [Solarized theme](https://github.com/altercation/solarized/) and, if you're
-# using it on Mac OS X, [iTerm 2](https://iterm2.com/) over Terminal.app -
-# it has significantly better color fidelity.
-#
-# If using with "light" variant of the Solarized color schema, set
-# SOLARIZED_THEME variable to "light". If you don't specify, we'll assume
-# you're using the "dark" variant.
-#
-# # Goals
-#
-# The aim of this theme is to only show you *relevant* information. Like most
-# prompts, it will only show git information when in a git working directory.
-# However, it goes a step further: everything from the current user and
-# hostname to whether the last call exited with an error to whether background
-# jobs are running in this shell will all be displayed automatically when
-# appropriate.
 
 ### Segment drawing
 # A few utility functions to make it easy and re-usable to draw segmented prompts
@@ -251,6 +232,8 @@ build_prompt() {
 }
 
 PROMPT='%{%f%b%k%}$(build_prompt) '
+
+# coffeenostor starts here:
 
 NORMAL_MODE_INDICATOR="%{$fg_bold[green]%}\ue0b2$(prompt_segment green $CURRENT_FG '--NORMAL-- ')"
 INSERT_MODE_INDICATOR="%{$fg_bold[blue]%}\ue0b2$(prompt_segment blue $CURRENT_FG '--INSERT-- ')"
